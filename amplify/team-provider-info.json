@@ -16,8 +16,11 @@
         "listObjects": {
           "secretsPathAmplifyAppId": "d22q08xrazrk91",
           "deploymentBucketName": "amplify-amplify8bcd7be77b664-staging-04307-deployment",
-          "s3Key": "amplify-builds/listObjects-7651445934456c385957-build.zip"
+          "s3Key": "amplify-builds/listObjects-47774c74596738655534-build.zip"
         }
+      },
+      "api": {
+        "flashS3": {}
       }
     }
   }

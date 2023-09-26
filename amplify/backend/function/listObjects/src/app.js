@@ -18,6 +18,9 @@ app.use(function(req, res, next) {
 
 app.get('/listObjects', function(req, res) {
   
+  console.log(req.body)
+  console.log(req.query)
+  
   new aws.SSM().getParameters({
     Names: ["ACCESS_KEY_ID", "SECRET_ACCESS_KEY"].map(secretName => process.env[secretName]),
     WithDecryption: true,
@@ -34,6 +37,7 @@ app.get('/listObjects', function(req, res) {
 
     client.send(new ListObjectsV2Command({
       Bucket: "arn:aws:s3:us-east-1:587813431606:accesspoint/website",
+      Prefix: req.query.path,
     })).then((objectsResponse) => {
       res.send(objectsResponse)
     })
