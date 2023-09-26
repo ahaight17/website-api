@@ -18,9 +18,6 @@ app.use(function(req, res, next) {
 
 app.get('/listObjects', function(req, res) {
   
-  console.log(req.body)
-  console.log(req.query)
-  
   new aws.SSM().getParameters({
     Names: ["ACCESS_KEY_ID", "SECRET_ACCESS_KEY"].map(secretName => process.env[secretName]),
     WithDecryption: true,
